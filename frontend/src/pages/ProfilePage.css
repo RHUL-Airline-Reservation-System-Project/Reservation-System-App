@@ -1,0 +1,21 @@
+.page-bg {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+.page-content {
+  position: relative;
+  z-index:1;
+  padding:80px 1rem 2rem;
+}
+
+/* translucent profile card */
+.page-content .container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+}

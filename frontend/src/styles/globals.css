@@ -1,0 +1,61 @@
+/* src/styles/globals.css */
+
+
+:root {
+
+  --color-shell-dark:   #1a1a1a;
+  
+  --color-card-light:   #ffffff;
+
+  --color-text-primary: #f5f5f5;
+
+  --color-text-dark:    #333333;
+  
+  --color-accent:       #ffb300; 
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-card-light);
+  color: var(--color-text-dark);
+}
+
+
+.btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.btn:hover {
+  opacity: 0.85;
+}
+.btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+.btn:not(.small) {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--color-card-light);
+  color: var(--color-text-dark);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.page .container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}

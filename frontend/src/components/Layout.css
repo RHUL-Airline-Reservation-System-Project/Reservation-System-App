@@ -1,0 +1,8 @@
+/* src/components/Layout.css */
+.home-content {
+  /* Allow the HomePage video to fill the viewport */
+  position: relative;
+}
+main.container {
+  background: var(--color-bg-light);
+}
