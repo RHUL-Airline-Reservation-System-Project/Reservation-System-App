@@ -7,10 +7,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **opts):
         tiers = {
-            "Economy": 50.00,
-            "Economy Plus": 80.00,
-            "Business": 200.00,
-            "First": 400.00
+            "ECONOMY": 50.00,
+            "ECONOMY_PLUS": 80.00,
+            "BUSINESS": 200.00,
+            "FIRST": 400.00
         }
 
         for flight in FlightTracker.objects.all():
@@ -23,6 +23,4 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("Ticket prices implemented."))
 
 #https://docs.djangoproject.com/en/5.2/howto/custom-management-commands/
-#https://docs.djangoproject.com/en/5.2/ref/models/querysets/#update-or-create
-
-            
+#https://docs.djangoproject.com/en/5.2/ref/models/querysets/#update-or-creat

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import InformationHub
 
-class InformationHubSerlializer(serializers.ModelSerializer):
+class InformationHubSerializer(serializers.ModelSerializer):
     class Meta:
         model = InformationHub
         fields = "__all__"

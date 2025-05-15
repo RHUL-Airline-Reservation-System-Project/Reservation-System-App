@@ -1,10 +1,15 @@
 from rest_framework import viewsets
-from .models import FlightTracker
-from .serializers import FlightTrackerSerializer
+from .models import FlightTracker, Seat
+from .serializers import FlightTrackerSerializer, SeatSerializer
 
 class FlightTrackerView(viewsets.ModelViewSet):
     queryset = FlightTracker.objects.all()
     serializer_class = FlightTrackerSerializer
+
+class SeatView(viewsets.ModelViewSet):
+    queryset = Seat.objects.all()
+    serializer_class = SeatSerializer
+    
     
 
 

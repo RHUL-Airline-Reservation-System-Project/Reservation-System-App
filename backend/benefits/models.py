@@ -3,8 +3,8 @@ from django.db import models
 class Benefits(models.Model):
     benefit = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    miles_needed = models.CharField(max_length=100)
-    discount_rate = models.CharField(max_length=100)
+    miles_needed = models.IntegerField()
+    discount_rate = models.DecimalField(max_digits=6,decimal_places=4)
 
     def __str__(self):
         return self.benefit

@@ -44,9 +44,22 @@ INSTALLED_APPS = [
     "backend.information_hub", 
     "backend.check_in",        
     "backend.profiles",        
-    "backend.benefits",      
+    "backend.benefits",
+    "corsheaders",
+    "drf_spectacular",  
+      
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Airline Reservation API",
+    "VERSION": "1.2",
+    "DESCRIPTION": "CRUD endpoints for flights, bookings and all other functions",
+
+}
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -55,10 +68,13 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = "backend.urls"
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

@@ -1,9 +1,10 @@
 from django.urls import path, include
-from .views import TicketingView
+from .views import TicketingView, BookingView
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r"ticketing", TicketingView)
+router.register(r"bookings", BookingView)
 
 urlpatterns = [
     path("", include(router.urls))

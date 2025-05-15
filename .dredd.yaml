@@ -1,0 +1,11 @@
+# .dredd.yml
+dry-run: null
+hookfiles: null
+language: nodejs
+server: 'python manage.py runserver'
+server-wait: 3
+init: false
+names: false
+custom:
+  schema: 'http://127.0.0.1:8000/api/schema/'   # your live OpenAPI endpoint
+  endpoint: 'http://127.0.0.1:8000

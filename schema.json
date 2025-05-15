@@ -1,0 +1,3598 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Airline Reservation API",
+    "version": "1.2",
+    "description": "CRUD endpoints for flights, bookings and all other functions"
+  },
+  "paths": {
+    "/api/benefits/benefit/": {
+      "get": {
+        "operationId": "benefits_benefit_list",
+        "tags": [
+          "benefits"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Benefit"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "benefits_benefit_create",
+        "tags": [
+          "benefits"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Benefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/benefits/benefit/{id}/": {
+      "get": {
+        "operationId": "benefits_benefit_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this benefits.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "benefits"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Benefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "benefits_benefit_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this benefits.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "benefits"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Benefit"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Benefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "benefits_benefit_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this benefits.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "benefits"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBenefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBenefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBenefit"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Benefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "benefits_benefit_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this benefits.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "benefits"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/check-in/check-in/": {
+      "get": {
+        "operationId": "check_in_check_in_list",
+        "tags": [
+          "check-in"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CheckIn"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "check_in_check_in_create",
+        "tags": [
+          "check-in"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckIn"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/check-in/check-in/{id}/": {
+      "get": {
+        "operationId": "check_in_check_in_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this check in.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "check-in"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckIn"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "check_in_check_in_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this check in.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "check-in"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckIn"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "check_in_check_in_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this check in.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "check-in"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedCheckIn"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedCheckIn"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedCheckIn"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckIn"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "check_in_check_in_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this check in.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "check-in"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/check-in/check-in/seats/": {
+      "get": {
+        "operationId": "check_in_check_in_seats_retrieve",
+        "tags": [
+          "check-in"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckIn"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/flight-tracker/flight-tracker/": {
+      "get": {
+        "operationId": "flight_tracker_flight_tracker_list",
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlightTracker"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "flight_tracker_flight_tracker_create",
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightTracker"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/flight-tracker/flight-tracker/{id}/": {
+      "get": {
+        "operationId": "flight_tracker_flight_tracker_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this flight tracker.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightTracker"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "flight_tracker_flight_tracker_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this flight tracker.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightTracker"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightTracker"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "flight_tracker_flight_tracker_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this flight tracker.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedFlightTracker"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedFlightTracker"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedFlightTracker"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightTracker"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "flight_tracker_flight_tracker_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this flight tracker.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/flight-tracker/seat/": {
+      "get": {
+        "operationId": "flight_tracker_seat_list",
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Seat"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "flight_tracker_seat_create",
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seat"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/flight-tracker/seat/{id}/": {
+      "get": {
+        "operationId": "flight_tracker_seat_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this seat.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seat"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "flight_tracker_seat_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this seat.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Seat"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seat"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "flight_tracker_seat_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this seat.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedSeat"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedSeat"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedSeat"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seat"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "flight_tracker_seat_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this seat.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "flight-tracker"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/information-hub/info-hub/": {
+      "get": {
+        "operationId": "information_hub_info_hub_list",
+        "tags": [
+          "information-hub"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InformationHub"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "information_hub_info_hub_create",
+        "tags": [
+          "information-hub"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InformationHub"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/information-hub/info-hub/{id}/": {
+      "get": {
+        "operationId": "information_hub_info_hub_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this information hub.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "information-hub"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InformationHub"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "information_hub_info_hub_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this information hub.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "information-hub"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/InformationHub"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InformationHub"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "information_hub_info_hub_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this information hub.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "information-hub"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedInformationHub"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedInformationHub"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedInformationHub"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InformationHub"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "information_hub_info_hub_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this information hub.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "information-hub"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/menu/menu/": {
+      "get": {
+        "operationId": "menu_menu_list",
+        "tags": [
+          "menu"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuItem"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "menu_menu_create",
+        "tags": [
+          "menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItem"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/menu/menu/{id}/": {
+      "get": {
+        "operationId": "menu_menu_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this menu item.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "menu"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItem"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "menu_menu_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this menu item.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuItem"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItem"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "menu_menu_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this menu item.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedMenuItem"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedMenuItem"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedMenuItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuItem"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "menu_menu_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this menu item.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "menu"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/profiles/profiles/": {
+      "get": {
+        "operationId": "profiles_profiles_list",
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Profiles"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "profiles_profiles_create",
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profiles"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/profiles/profiles/{id}/": {
+      "get": {
+        "operationId": "profiles_profiles_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this profiles.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profiles"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "profiles_profiles_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this profiles.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Profiles"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profiles"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "profiles_profiles_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this profiles.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedProfiles"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedProfiles"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedProfiles"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profiles"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "profiles_profiles_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this profiles.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/profiles/tier-benefits/": {
+      "get": {
+        "operationId": "profiles_tier_benefits_list",
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TierBenefit"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "profiles_tier_benefits_create",
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TierBenefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/profiles/tier-benefits/{id}/": {
+      "get": {
+        "operationId": "profiles_tier_benefits_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this tier benefit.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TierBenefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "profiles_tier_benefits_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this tier benefit.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/TierBenefit"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TierBenefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "profiles_tier_benefits_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this tier benefit.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTierBenefit"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTierBenefit"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTierBenefit"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TierBenefit"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "profiles_tier_benefits_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this tier benefit.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "profiles"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/schema/": {
+      "get": {
+        "operationId": "schema_retrieve",
+        "description": "OpenApi3 schema for this API. Format can be selected via content negotiation.\n\n- YAML: application/vnd.oai.openapi\n- JSON: application/vnd.oai.openapi+json",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "yaml"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "lang",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "af",
+                "ar",
+                "ar-dz",
+                "ast",
+                "az",
+                "be",
+                "bg",
+                "bn",
+                "br",
+                "bs",
+                "ca",
+                "ckb",
+                "cs",
+                "cy",
+                "da",
+                "de",
+                "dsb",
+                "el",
+                "en",
+                "en-au",
+                "en-gb",
+                "eo",
+                "es",
+                "es-ar",
+                "es-co",
+                "es-mx",
+                "es-ni",
+                "es-ve",
+                "et",
+                "eu",
+                "fa",
+                "fi",
+                "fr",
+                "fy",
+                "ga",
+                "gd",
+                "gl",
+                "he",
+                "hi",
+                "hr",
+                "hsb",
+                "hu",
+                "hy",
+                "ia",
+                "id",
+                "ig",
+                "io",
+                "is",
+                "it",
+                "ja",
+                "ka",
+                "kab",
+                "kk",
+                "km",
+                "kn",
+                "ko",
+                "ky",
+                "lb",
+                "lt",
+                "lv",
+                "mk",
+                "ml",
+                "mn",
+                "mr",
+                "ms",
+                "my",
+                "nb",
+                "ne",
+                "nl",
+                "nn",
+                "os",
+                "pa",
+                "pl",
+                "pt",
+                "pt-br",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sq",
+                "sr",
+                "sr-latn",
+                "sv",
+                "sw",
+                "ta",
+                "te",
+                "tg",
+                "th",
+                "tk",
+                "tr",
+                "tt",
+                "udm",
+                "ug",
+                "uk",
+                "ur",
+                "uz",
+                "vi",
+                "zh-hans",
+                "zh-hant"
+              ]
+            }
+          }
+        ],
+        "tags": [
+          "schema"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/vnd.oai.openapi": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              },
+              "application/yaml": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              },
+              "application/vnd.oai.openapi+json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ticketing/bookings/": {
+      "get": {
+        "operationId": "ticketing_bookings_list",
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Booking"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "ticketing_bookings_create",
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ticketing/bookings/{id}/": {
+      "get": {
+        "operationId": "ticketing_bookings_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this booking.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "ticketing_bookings_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this booking.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "ticketing_bookings_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this booking.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBooking"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBooking"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedBooking"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "ticketing_bookings_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this booking.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    },
+    "/api/ticketing/bookings/{id}/buy/": {
+      "post": {
+        "operationId": "ticketing_bookings_buy_create",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this booking.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ticketing/ticketing/": {
+      "get": {
+        "operationId": "ticketing_ticketing_list",
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ticketing"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "ticketing_ticketing_create",
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticketing"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ticketing/ticketing/{id}/": {
+      "get": {
+        "operationId": "ticketing_ticketing_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this ticketing.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticketing"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "ticketing_ticketing_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this ticketing.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticketing"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticketing"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "ticketing_ticketing_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this ticketing.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTicketing"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTicketing"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchedTicketing"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticketing"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "ticketing_ticketing_destroy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "A unique integer value identifying this ticketing.",
+            "required": true
+          }
+        ],
+        "tags": [
+          "ticketing"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "basicAuth": []
+          },
+          {}
+        ],
+        "responses": {
+          "204": {
+            "description": "No response body"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Benefit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "benefit": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "miles_needed": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "discount_rate": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,2}(?:\\.\\d{0,4})?$"
+          }
+        },
+        "required": [
+          "benefit",
+          "description",
+          "discount_rate",
+          "id",
+          "miles_needed"
+        ]
+      },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "passenger": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "booking_reference": {
+            "type": "string",
+            "readOnly": true
+          },
+          "seat": {
+            "type": "string",
+            "maxLength": 4
+          },
+          "check_in": {
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusEnum"
+          },
+          "booking_time": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "flight": {
+            "type": "integer"
+          },
+          "ticket": {
+            "type": "integer",
+            "nullable": true
+          }
+        },
+        "required": [
+          "booking_reference",
+          "booking_time",
+          "flight",
+          "id",
+          "passenger",
+          "seat"
+        ]
+      },
+      "CheckIn": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "booking_reference": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "passenger_name": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "seat": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "extras": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "booking_reference",
+          "extras",
+          "id",
+          "passenger_name",
+          "seat"
+        ]
+      },
+      "ClassTypeEnum": {
+        "enum": [
+          "FIRST",
+          "BUSINESS",
+          "ECONOMY_PLUS",
+          "ECONOMY"
+        ],
+        "type": "string",
+        "description": "* `FIRST` - First Class\n* `BUSINESS` - Business Class\n* `ECONOMY_PLUS` - Economy Plus\n* `ECONOMY` - Economy"
+      },
+      "FlightTracker": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "flight_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "flight_status": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "departure_time": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "arrival_time": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "departure_location": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "destination": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "seats_remaining": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "arrival_time",
+          "departure_location",
+          "departure_time",
+          "destination",
+          "flight_number",
+          "flight_status",
+          "id",
+          "seats_remaining"
+        ]
+      },
+      "InformationHub": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "flight_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "status_update": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "gate_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "cancellation": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "delay": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "cancellation",
+          "delay",
+          "flight_number",
+          "gate_number",
+          "id",
+          "status_update"
+        ]
+      },
+      "MenuItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "icon": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "url"
+        ]
+      },
+      "PatchedBenefit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "benefit": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "miles_needed": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "discount_rate": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,2}(?:\\.\\d{0,4})?$"
+          }
+        }
+      },
+      "PatchedBooking": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "passenger": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "booking_reference": {
+            "type": "string",
+            "readOnly": true
+          },
+          "seat": {
+            "type": "string",
+            "maxLength": 4
+          },
+          "check_in": {
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusEnum"
+          },
+          "booking_time": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "flight": {
+            "type": "integer"
+          },
+          "ticket": {
+            "type": "integer",
+            "nullable": true
+          }
+        }
+      },
+      "PatchedCheckIn": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "booking_reference": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "passenger_name": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "seat": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "extras": {
+            "type": "string",
+            "maxLength": 100
+          }
+        }
+      },
+      "PatchedFlightTracker": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "flight_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "flight_status": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "departure_time": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "arrival_time": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "departure_location": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "destination": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "seats_remaining": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "PatchedInformationHub": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "flight_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "status_update": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "gate_number": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "cancellation": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "delay": {
+            "type": "string",
+            "maxLength": 100
+          }
+        }
+      },
+      "PatchedMenuItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "icon": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          }
+        }
+      },
+      "PatchedProfiles": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "miles_balance": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "membership": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "user": {
+            "type": "integer"
+          }
+        }
+      },
+      "PatchedSeat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "row": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "letter": {
+            "type": "string",
+            "maxLength": 1
+          },
+          "seat_class": {
+            "$ref": "#/components/schemas/SeatClassEnum"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "flight": {
+            "type": "integer"
+          }
+        }
+      },
+      "PatchedTicketing": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "booking_reference": {
+            "type": "string",
+            "readOnly": true
+          },
+          "price": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,6}(?:\\.\\d{0,2})?$"
+          },
+          "class_type": {
+            "$ref": "#/components/schemas/ClassTypeEnum"
+          },
+          "discount_code": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "is_available": {
+            "type": "boolean"
+          },
+          "flight": {
+            "type": "integer"
+          }
+        }
+      },
+      "PatchedTierBenefit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "tier": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "discount": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,2}(?:\\.\\d{0,2})?$"
+          },
+          "lounge_access": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Profiles": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "miles_balance": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "membership": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "user": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "miles_balance",
+          "user"
+        ]
+      },
+      "Seat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "row": {
+            "type": "integer",
+            "maximum": 9223372036854775807,
+            "minimum": -9223372036854775808,
+            "format": "int64"
+          },
+          "letter": {
+            "type": "string",
+            "maxLength": 1
+          },
+          "seat_class": {
+            "$ref": "#/components/schemas/SeatClassEnum"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "flight": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "flight",
+          "id",
+          "letter",
+          "row",
+          "seat_class"
+        ]
+      },
+      "SeatClassEnum": {
+        "enum": [
+          "FIRST",
+          "BUSINESS",
+          "ECONOMY_PLUS",
+          "ECONOMY"
+        ],
+        "type": "string",
+        "description": "* `FIRST` - First Class\n* `BUSINESS` - Business Class\n* `ECONOMY_PLUS` - Economy Plus\n* `ECONOMY` - Economy"
+      },
+      "StatusEnum": {
+        "enum": [
+          "PENDING",
+          "CONFIRMED",
+          "CANCELLED"
+        ],
+        "type": "string",
+        "description": "* `PENDING` - Pending\n* `CONFIRMED` - Confirmed\n* `CANCELLED` - Cancelled"
+      },
+      "Ticketing": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "booking_reference": {
+            "type": "string",
+            "readOnly": true
+          },
+          "price": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,6}(?:\\.\\d{0,2})?$"
+          },
+          "class_type": {
+            "$ref": "#/components/schemas/ClassTypeEnum"
+          },
+          "discount_code": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "is_available": {
+            "type": "boolean"
+          },
+          "flight": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "booking_reference",
+          "class_type",
+          "flight",
+          "id",
+          "price"
+        ]
+      },
+      "TierBenefit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "tier": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "discount": {
+            "type": "string",
+            "format": "decimal",
+            "pattern": "^-?\\d{0,2}(?:\\.\\d{0,2})?$"
+          },
+          "lounge_access": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "discount",
+          "id",
+          "tier"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "sessionid"
+      }
+    }
+  }
+}

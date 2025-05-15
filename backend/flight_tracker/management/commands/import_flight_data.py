@@ -8,33 +8,37 @@ class Command(BaseCommand):
     help = "Loads chatgpt generated dataset into FlightTracker and InformationHub"
 
     def handle(self, *args, **opts):
+        objs = []
         with open("real_flights_dataset.csv") as fd:
             reader = csv.DictReader(fd)
             for row in reader:
-                fn = row["flight_number"]
-                FlightTracker.objects.update_or_create(
-                flight_number =fn,
-                defaults ={
-                    "flight_status": row["status"],
-                    "departure_time": row["scheduled_departure"],
-                    "arrival_time": row["scheduled_arrival"],
-                    "departure_location": row["origin"],
-                    "destination": row["destination"]
-                    }
-                )
+                
+                objs.append(FlightTracker(
+                    flight_number = row["flight_number"],
+                    flight_status = row["status"],
+                    departure_time = row["scheduled_departure"],
+                    arrival_time = row["scheduled_arrival"],
+                    departure_location = row["origin"],
+                    destination = row["destination"]
+                ))
+                
+                
 
                 InformationHub.objects.update_or_create(
-                flight_number =fn,
+                flight_number = row["flight_number"],
                 defaults = {
                     "status_update": row["status"],
                     "gate_number": row["departure_gate"],
                     "cancellation": "Yes" if row["cancelled"] == "True" else "No",
                     "delay": row["delay_minutes"] or "0"
                     }
-                )  
+                ) 
+        FlightTracker.objects.bulk_create(objs, ignore_conflicts=True) 
         self.stdout.write(self.style.SUCCESS("Imported all flights & gate info."))
         
 
 #https://www.geeksforgeeks.org/reading-csv-files-in-python/
 #https://docs.djangoproject.com/en/5.2/howto/custom-management-commands/
 #https://docs.djangoproject.com/en/5.2/ref/models/querysets/#update-or-create
+#https://docs.djangoproject.com/en/5.2/ref/models/querysets/#bulk-create
+
