@@ -5,7 +5,7 @@ from .views import FlightTrackerView, SeatView
 router = DefaultRouter()
 router.register(r"flight-tracker", FlightTrackerView)
 router.register(r"seat", SeatView )
-
+#routers help with declaring common routes for view logic with automatic paths(Defaultrouter)
 urlpatterns = [
     path("", include(router.urls))
 ]

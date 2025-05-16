@@ -1,10 +1,10 @@
-from rest_framework import viewsets, status, generics
-from rest_framework.response import Response
+from rest_framework import viewsets
 from .models import Profiles, TierBenefit
 from .serializers import ProfilesSerializer, TierBenefitSerializer
-import math
 
 
+#views are callables that take a request and return a response
+#viewsets have basic crud commands, making it easier to use
 class ProfilesView(viewsets.ModelViewSet):
     queryset = Profiles.objects.all()
     serializer_class = ProfilesSerializer

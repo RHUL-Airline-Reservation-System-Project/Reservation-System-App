@@ -1,6 +1,9 @@
 from django.db import models
 
 class MenuItem(models.Model):
+    #models contain information about data and contain parameters and behaviours
+    #these models are created for the navbar of the web app, the frontend can assign any name, 
+    #icon and url into them
     title = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     icon = models.IntegerField(default=0)

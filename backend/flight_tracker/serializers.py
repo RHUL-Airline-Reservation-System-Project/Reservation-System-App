@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import FlightTracker, Seat
 
 class FlightTrackerSerializer(serializers.ModelSerializer):
+    #serializers are responsible of turning various datatypes into native Python datatypes that can be rendered into JSON and vice verse
     seats_remaining = serializers.SerializerMethodField()
     class Meta:
         model = FlightTracker
@@ -12,10 +13,11 @@ class FlightTrackerSerializer(serializers.ModelSerializer):
                   "departure_location",
                   "destination",
                   "seats_remaining"]
-
+        #this serializer has fields because it gets assigned to the csv file to properly equate each data type 
     def get_seats_remaining(self, obj):
         return obj.seats.filter(available=True).count()
 class SeatSerializer(serializers.ModelSerializer):
+    #serializer for seat assignment and generation
     class Meta:
         model = Seat
         fields = "__all__"

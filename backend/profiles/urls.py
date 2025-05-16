@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r"profiles", ProfilesView)
 router.register(r"tier-benefits", BenefitView)
-
+#routers help with declaring common routes for view logic with automatic paths(Defaultrouter)
 urlpatterns = [
     path("", include(router.urls)),
 ]

@@ -1,10 +1,11 @@
 from django.core.management.base import BaseCommand
 from backend.flight_tracker.models import FlightTracker, Seat
-
+#base commands are used by management and manage.py they are at the root of each file if created
 class Command(BaseCommand):
     help= "Generate seats for a 200 capacity plane per flight with accurate classes"
 
     def handle(self, *args, **opts):
+        #generates and assigns seats to all classes via simple for logic and appending seats array
         for f in FlightTracker.objects.all():
             seats = []
 
@@ -22,3 +23,6 @@ class Command(BaseCommand):
                     seats.append(Seat(flight=f, row=r, letter=L, seat_class="ECONOMY")) 
             Seat.objects.bulk_create(seats, ignore_conflicts=True)
         self.stdout.write(self.style.SUCCESS("200 seats generated for each flight"))
+        #alert for successful generation
+
+#https://docs.djangoproject.com/en/5.2/howto/custom-management-commands/

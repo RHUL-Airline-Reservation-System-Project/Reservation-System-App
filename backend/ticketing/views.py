@@ -8,8 +8,8 @@ from backend.flight_tracker.models import Seat
 from .serializers import TicketingSerializer, BookingSerializer, PaymentSerializer
 import uuid
 
-
-
+#views are callables that take a request and return a response
+#viewsets have basic crud commands, making it easier to use
 class TicketingView(viewsets.ModelViewSet):
     queryset = Ticketing.objects.all()
     serializer_class = TicketingSerializer
@@ -17,22 +17,26 @@ class BookingView(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     
-
+    #overrides perform create function that viewsets provides
     def perform_create(self, serializer):
+        
+        #serializes seat and flight instances
         seat_str = serializer.validated_data.get("seat")
         flight = serializer.validated_data["flight"]
         row, letter = int(seat_str[:-1]), seat_str[-1]
 
-
+        #try-except logic for checking seat availability
         try:
             seat_obj = Seat.objects.get(flight=flight, 
                                         row=int(seat_str[:-1]), 
                                         letter=seat_str[-1], available=True)
         except Seat.DoesNotExist:
             raise ValidationError({"seat": "Unavailable or invalid seat"})
+        #raises error for when user is trying to book an unavailable/invalid seat
         seat_obj.available = False
         seat_obj.save()
-
+        
+        #assigns rows for classes with simple if-else logic
         if row <= 2:
             seat_class ="FIRST"
         elif row <=5:
@@ -42,6 +46,7 @@ class BookingView(viewsets.ModelViewSet):
         else:
             seat_class = "ECONOMY"
         
+        #try-except for flight, class, seat and availability check
         try:
             ticket = Ticketing.objects.filter(
                 flight = flight,
@@ -49,6 +54,7 @@ class BookingView(viewsets.ModelViewSet):
                 is_available = True).earliest("id")
         except Ticketing.DoesNotExist:
             raise ValidationError({"error":f"No {seat_class} tickets available"})
+        #raises error when check fails
         ticket.is_available = False
         ticket.save()
         reference = uuid.uuid4().hex[:8].upper()
@@ -63,16 +69,16 @@ class BookingView(viewsets.ModelViewSet):
         amount = float(booking.ticket.price)
 
         payment, created = Payment.objects.get_or_create(booking=booking, defaults={"amount":amount, "status":"PENDING"})
-
+        #if-else logic for all possibilities of payment status
         if not created:
             if payment.status == "PAID":
-                return Response({"error":"Bokking already paid"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"error":"Booking already paid"}, status=status.HTTP_400_BAD_REQUEST)
         
         if not created and payment.status in {"FAILED","REFUNDED"}:
             payment.status = "PENDING"
             payment.amount = amount
             payment.save()
-        
+        #predetermined probabilities for payment simulation
         r = random.random()
         if r < 0.9:
             payment.status = "PAID"
@@ -116,4 +122,5 @@ class PaymentView(viewsets.ModelViewSet):
 #https://www.django-rest-framework.org/api-guide/viewsets/#marking-extra-actions-for-routing
 #https://www.django-rest-framework.org/api-guide/generic-views/#perform_create
 #https://www.django-rest-framework.org/api-guide/exceptions/#validationerror
+#https://www.django-rest-framework.org/api-guide/status-codes
 

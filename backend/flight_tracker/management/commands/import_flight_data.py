@@ -2,7 +2,7 @@ import csv
 from django.core.management.base import BaseCommand
 from backend.flight_tracker.models  import FlightTracker  
 from backend.information_hub.models import InformationHub
-
+#base commands are used by management and manage.py they are at the root of each file if created
 
 class Command(BaseCommand):
     help = "Loads chatgpt generated dataset into FlightTracker and InformationHub"
@@ -21,6 +21,7 @@ class Command(BaseCommand):
                     departure_location = row["origin"],
                     destination = row["destination"]
                 ))
+                #reads csv file and assigns it to flight tracker models for storing and grabbing data
                 
                 
 
@@ -33,8 +34,10 @@ class Command(BaseCommand):
                     "delay": row["delay_minutes"] or "0"
                     }
                 ) 
+                #uses the alread read csv file for information hub models that need data 
         FlightTracker.objects.bulk_create(objs, ignore_conflicts=True) 
         self.stdout.write(self.style.SUCCESS("Imported all flights & gate info."))
+        #alert for successful importation
         
 
 #https://www.geeksforgeeks.org/reading-csv-files-in-python/

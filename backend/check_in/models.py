@@ -1,6 +1,8 @@
 from django.db import models
 
 class CheckIn(models.Model):
+    #models contain information about data and contain parameters and behaviours
+    #generating booking reference, passenger name, seat and extras are essentials for a checkin
     booking_reference = models.CharField(max_length=100)
     passenger_name = models.CharField(max_length=100)
     seat = models.CharField(max_length=100)

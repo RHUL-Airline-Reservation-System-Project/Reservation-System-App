@@ -1,6 +1,9 @@
 from django.db import models
 
 class InformationHub(models.Model):
+    #models contain information about data and contain parameters and behaviours
+    #these models contaion basic information you would see at an airport terminal or in this case,
+    #the airline reservation system
     flight_number = models.CharField(max_length = 100)
     status_update = models.CharField(max_length = 100)
     gate_number = models.CharField(max_length = 100)

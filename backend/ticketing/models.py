@@ -3,6 +3,9 @@ from backend.flight_tracker.models import FlightTracker
 
 
 class Ticketing(models.Model):
+    #models contain information about data and contain parameters and behaviours
+    #choosing a specific flight, the price dependant on the class type, chooseable class choice,
+    #any possible discounts and availability 
     flight = models.ForeignKey(FlightTracker, on_delete=models.CASCADE, related_name="tickets")
     price = models.DecimalField(max_digits=8, decimal_places=2)
     CLASS_CHOICES = [
@@ -18,6 +21,9 @@ class Ticketing(models.Model):
     def __str__(self):
         return f"{self.flight_number} - {self.class_type}"
 class Booking(models.Model):
+    #booking model for importing flights form the csv and assigning passengers,
+    #generateable or customizable booking reference, check in and booking confirmation status,
+    #and a bookşng time model that automatically gets the time of the booking
     flight = models.ForeignKey(
         "flight_tracker.FlightTracker", 
         on_delete=models.CASCADE, 
@@ -34,6 +40,8 @@ class Booking(models.Model):
         return f"Booking #{self.id} for {self.passenger}"
 
 class Payment(models.Model):
+    #payment model for unique bookings with default pending payment status, amount owed, transaction id
+    #and creation time storing model
     booking = models.OneToOneField("Booking", on_delete=models.CASCADE, related_name="payment")
     PAYMENT_STATUS_CHOICES = [
         ("PENDING", "Payment pending"),

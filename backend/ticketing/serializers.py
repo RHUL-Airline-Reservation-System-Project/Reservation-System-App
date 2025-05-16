@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Ticketing, Booking, Payment
+#serializers are responsible of turning various datatypes into native Python datatypes that can be rendered into JSON and vice verse
 
 class TicketingSerializer(serializers.ModelSerializer):
     booking_reference = serializers.CharField(read_only=True)
@@ -8,6 +9,7 @@ class TicketingSerializer(serializers.ModelSerializer):
         model = Ticketing
         fields = "__all__"
         read_only_fields = ["booking_reference"]
+        #booking reference is read only as it is generated 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking

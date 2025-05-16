@@ -1,6 +1,8 @@
 from django.db import models
 
 class FlightTracker(models.Model):
+    #models contain information about data and contain parameters and behaviours
+    #these are the fields that are connected to the csv file for tracking flights and storing information
     flight_number = models.CharField(max_length=100)
     flight_status = models.CharField(max_length=100)
     departure_time = models.CharField(max_length=100)
@@ -15,6 +17,7 @@ class FlightTracker(models.Model):
            return self.flight_number
         
 class Seat(models.Model):
+    #these models determine basic properties of a seat such as class, row, letter and availability status
     CLASS_CHOICES = [
         ('FIRST',        'First Class'),
         ('BUSINESS',     'Business Class'),
@@ -30,6 +33,7 @@ class Seat(models.Model):
 
     class Meta:
         unique_together = ("flight", "row", "letter")
+        #all fields must be true or have a property for this to be a complete model
     
     def __str__(self):
         return f"{self.flight.flight_number} {self.row}{self.letter} ({self.seat_class})"
